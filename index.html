@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rhianne Kiley — PhD Researcher</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --ink: #0c1824;
+    --ink-mid: #2e3f50;
+    --ink-muted: #6b7f91;
+    --blue-deep: #0d2d4a;
+    --blue-mid: #1a4a72;
+    --blue-bright: #2570b0;
+    --blue-light: #e8f2fa;
+    --blue-pale: #f2f7fc;
+    --sheffield-gold: #c8a951;
+    --oracle-teal: #2aaa8a;
+    --warm-white: #fcfcfd;
+    --border: #dce8f0;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--warm-white); color: var(--ink); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; background: rgba(252,252,253,0.93); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: var(--serif); font-size: 1.05rem; color: var(--ink); text-decoration: none; letter-spacing: -0.02em; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--blue-bright); }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 55fr 45fr; padding-top: 4rem; }
+  .hero-left { background: var(--blue-deep); padding: 6rem 4.5rem 4rem 5rem; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
+  .hero-left::before { content: ''; position: absolute; top: -100px; right: -100px; width: 380px; height: 380px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.06); pointer-events: none; }
+  .hero-left::after { content: ''; position: absolute; bottom: 40px; left: -60px; width: 220px; height: 220px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.04); pointer-events: none; }
+  .hero-gold-bar { position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--sheffield-gold) 0%, var(--oracle-teal) 100%); }
+  .hero-tag { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--sheffield-gold); font-weight: 500; margin-bottom: 1.5rem; }
+  .hero-name { font-family: var(--serif); font-size: clamp(2.6rem, 4.5vw, 4.2rem); color: #fff; line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+  .hero-name em { color: var(--sheffield-gold); font-style: italic; }
+  .hero-desc { color: rgba(255,255,255,0.6); font-size: 0.97rem; line-height: 1.75; max-width: 380px; margin-bottom: 2.5rem; font-weight: 300; }
+  .hero-cta { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--blue-bright); color: #fff; padding: 0.85rem 1.8rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; width: fit-content; }
+  .hero-cta:hover { background: #1e5d96; }
+  .hero-right { background: var(--blue-pale); padding: 6rem 3.5rem 4rem 3.5rem; display: flex; flex-direction: column; justify-content: center; gap: 0; border-left: 1px solid var(--border); }
+  .hero-stat { padding: 1.75rem 0; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.2rem; }
+  .hero-stat:first-child { border-top: 1px solid var(--border); }
+  .hero-stat-num { font-family: var(--serif); font-size: 2.6rem; color: var(--blue-deep); line-height: 1; letter-spacing: -0.04em; }
+  .hero-stat-label { font-size: 0.78rem; color: var(--ink-muted); letter-spacing: 0.07em; text-transform: uppercase; font-weight: 500; }
+  .hero-funders { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .funder-pill { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; background: #fff; border: 1px solid var(--border); }
+  .funder-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .funder-dot-gold { background: var(--sheffield-gold); }
+  .funder-dot-teal { background: var(--oracle-teal); }
+  .funder-text { font-size: 0.8rem; color: var(--ink-mid); font-weight: 400; }
+  .funder-text strong { font-weight: 500; color: var(--ink); }
+
+  /* SECTIONS */
+  section { padding: 6rem 0; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 3rem; }
+  .section-eyebrow { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--blue-bright); font-weight: 500; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-eyebrow::after { content: ''; display: block; width: 36px; height: 1px; background: var(--blue-bright); }
+  .section-title { font-family: var(--serif); font-size: clamp(1.9rem, 3vw, 2.8rem); letter-spacing: -0.03em; line-height: 1.1; color: var(--ink); margin-bottom: 1rem; }
+  .section-lead { color: var(--ink-muted); font-size: 0.97rem; line-height: 1.8; max-width: 540px; font-weight: 300; }
+
+  /* ABOUT */
+  #about { background: var(--warm-white); }
+  .about-grid { display: grid; grid-template-columns: 5fr 4fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+  .about-body p { color: var(--ink-mid); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1.2rem; font-weight: 300; }
+  .about-body p strong { color: var(--ink); font-weight: 500; }
+  .about-aside { display: flex; flex-direction: column; gap: 0; }
+  .aside-card { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--border); background: var(--blue-pale); }
+  .aside-card:first-child { border-top: 1px solid var(--border); }
+  .aside-card-label { font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-bright); font-weight: 500; margin-bottom: 0.35rem; }
+  .aside-card-value { font-size: 0.88rem; color: var(--ink); font-weight: 400; line-height: 1.55; }
+
+  /* RESEARCH */
+  #research { background: var(--blue-deep); }
+  #research .section-eyebrow { color: var(--sheffield-gold); }
+  #research .section-eyebrow::after { background: var(--sheffield-gold); }
+  #research .section-title { color: #fff; }
+  #research .section-lead { color: rgba(255,255,255,0.45); }
+  .wp-grid { margin-top: 3.5rem; display: flex; flex-direction: column; gap: 2rem; }
+  .wp-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+  .wp-tag { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; padding: 0.3rem 0.8rem; border: 1px solid; }
+  .wp-tag-1 { color: var(--sheffield-gold); border-color: var(--sheffield-gold); }
+  .wp-tag-2 { color: var(--oracle-teal); border-color: var(--oracle-teal); }
+  .wp-name { font-family: var(--serif); font-size: 1rem; color: rgba(255,255,255,0.7); font-style: italic; }
+  .studies-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.07); }
+  .studies-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .study-card { background: rgba(255,255,255,0.03); padding: 1.75rem 1.5rem; display: flex; flex-direction: column; gap: 0.6rem; transition: background 0.2s; }
+  .study-card:hover { background: rgba(255,255,255,0.06); }
+  .study-num { font-family: var(--serif); font-size: 1.8rem; line-height: 1; font-style: italic; }
+  .study-num-1 { color: var(--sheffield-gold); }
+  .study-num-2 { color: var(--oracle-teal); }
+  .study-title { font-size: 0.9rem; color: #fff; font-weight: 500; line-height: 1.45; }
+  .study-desc { font-size: 0.8rem; color: rgba(255,255,255,0.4); line-height: 1.65; font-weight: 300; }
+  .study-tag { font-size: 0.62rem; letter-spacing: 0.09em; text-transform: uppercase; font-weight: 500; margin-top: 0.25rem; padding: 0.18rem 0.55rem; width: fit-content; border: 1px solid; }
+  .tag-active { color: var(--oracle-teal); border-color: var(--oracle-teal); }
+  .tag-analysis { color: var(--sheffield-gold); border-color: var(--sheffield-gold); }
+  .tag-planned { color: rgba(255,255,255,0.3); border-color: rgba(255,255,255,0.15); }
+
+  /* PUBLICATIONS */
+  #publications { background: var(--blue-light); }
+  .pub-list { margin-top: 3rem; }
+  .pub-item { display: grid; grid-template-columns: 3.5rem 1fr auto; gap: 0 1.5rem; align-items: start; padding: 1.6rem 0; border-bottom: 1px solid var(--border); }
+  .pub-item:first-child { border-top: 1px solid var(--border); }
+  .pub-year { font-family: var(--serif); font-size: 0.85rem; color: var(--ink-muted); padding-top: 0.15rem; font-style: italic; }
+  .pub-title { font-size: 0.93rem; color: var(--ink); font-weight: 500; margin-bottom: 0.3rem; line-height: 1.45; }
+  .pub-venue { font-size: 0.8rem; color: var(--ink-muted); font-weight: 300; font-style: italic; }
+  .pub-badge { font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; padding: 0.22rem 0.7rem; white-space: nowrap; margin-top: 0.1rem; border: 1px solid; }
+  .badge-inprogress { color: var(--blue-bright); border-color: var(--blue-bright); background: rgba(37,112,176,0.07); }
+  .badge-upcoming { color: var(--oracle-teal); border-color: var(--oracle-teal); background: rgba(42,170,138,0.07); }
+  .badge-planned { color: var(--ink-muted); border-color: var(--border); }
+
+  /* CONTACT */
+  #contact { background: var(--warm-white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; margin-top: 3.5rem; align-items: start; }
+  .contact-text p { font-size: 0.95rem; color: var(--ink-mid); line-height: 1.85; font-weight: 300; margin-bottom: 1rem; }
+  .contact-links { display: flex; flex-direction: column; }
+  .contact-link { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--ink); transition: all 0.2s; }
+  .contact-link:first-child { border-top: 1px solid var(--border); }
+  .contact-link:hover { color: var(--blue-bright); }
+  .contact-link-label { font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; margin-bottom: 0.2rem; }
+  .contact-link:hover .contact-link-label { color: var(--blue-bright); }
+  .contact-link-value { font-size: 0.92rem; font-weight: 400; }
+  .contact-arrow { font-size: 1rem; opacity: 0.3; transition: opacity 0.2s; }
+  .contact-link:hover .contact-arrow { opacity: 1; }
+
+  /* FOOTER */
+  footer { background: var(--blue-deep); padding: 0; }
+  .footer-bar { height: 4px; background: linear-gradient(90deg, var(--sheffield-gold) 0%, var(--oracle-teal) 100%); }
+  .footer-inner { padding: 2rem 3rem; display: flex; align-items: center; justify-content: space-between; }
+  .footer-logo { font-family: var(--serif); font-size: 0.95rem; color: rgba(255,255,255,0.5); font-style: italic; }
+  .footer-right { font-size: 0.72rem; color: rgba(255,255,255,0.22); letter-spacing: 0.06em; text-transform: uppercase; text-align: right; line-height: 1.8; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .hero-left > * { animation: fadeUp 0.6s ease both; }
+  .hero-tag { animation-delay: 0.1s; }
+  .hero-name { animation-delay: 0.2s; }
+  .hero-desc { animation-delay: 0.3s; }
+  .hero-cta { animation-delay: 0.4s; }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 5rem 2rem 3rem; min-height: 60vh; }
+    .hero-right { padding: 3rem 2rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .studies-grid, .studies-grid-2 { grid-template-columns: 1fr; }
+    .container { padding: 0 1.5rem; }
+    section { padding: 4rem 0; }
+    .pub-item { grid-template-columns: 2.5rem 1fr; }
+    .pub-badge { display: none; }
+    footer .footer-inner { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .footer-right { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">Rhianne Kiley</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Outputs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-gold-bar"></div>
+    <p class="hero-tag">PhD Researcher · University of Sheffield</p>
+    <h1 class="hero-name">Language &amp;<br><em>Cancer</em><br>Communication</h1>
+    <p class="hero-desc">Investigating how terminology shapes public understanding and patient experience of head and neck cancers — with a focus on HPV-related disease.</p>
+    <a href="#research" class="hero-cta">Explore the research &nbsp;→</a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat">
+      <div class="hero-stat-num">42</div>
+      <div class="hero-stat-label">Month programme · 2025–2028</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">5</div>
+      <div class="hero-stat-label">Interconnected studies</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">4</div>
+      <div class="hero-stat-label">Stakeholder populations</div>
+    </div>
+    <div class="hero-funders">
+      <div class="funder-pill">
+        <div class="funder-dot funder-dot-gold"></div>
+        <div class="funder-text"><strong>University of Sheffield</strong> · Department of Psychology</div>
+      </div>
+      <div class="funder-pill">
+        <div class="funder-dot funder-dot-teal"></div>
+        <div class="funder-text"><strong>Oracle Cancer Trust</strong> · Industry partner &amp; funder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-eyebrow">About me</p>
+    <h2 class="section-title">Psychology researcher<br>in cancer communication</h2>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>I'm a PhD researcher in the Department of Psychology at the University of Sheffield, jointly funded by the <strong>University of Sheffield</strong> and <strong>Oracle Cancer Trust</strong>. My research sits at the intersection of health communication, psychology, and cancer care — examining how the <strong>language we use to describe head and neck cancers</strong> shapes how they are understood and experienced.</p>
+        <p>Before starting my PhD, I completed an <strong>MSc in Applied Psychology</strong>, with a dissertation focused on patient experiences of HPV diagnosis within the UK cervical screening programme. I also volunteer with a biotech company working on HPV self-sampling technology.</p>
+        <p>I chose head and neck cancers specifically because communication in this field is critically understudied — particularly given the rapid rise of HPV-associated oropharyngeal cancer, which brings unique challenges around sexual health disclosure, stigma, and public awareness.</p>
+        <p>I'm committed to <strong>patient and public involvement</strong> as genuine co-production. My PPI group includes people with lived experience of HPV-related head and neck cancers, who actively shape research questions, methods, and interpretations throughout the project.</p>
+      </div>
+      <div class="about-aside">
+        <div class="aside-card">
+          <div class="aside-card-label">Institution</div>
+          <div class="aside-card-value">University of Sheffield · Department of Psychology</div>
+        </div>
+        <div class="aside-card">
+          <div class="aside-card-label">Supervisors</div>
+          <div class="aside-card-value">Prof. Sue Sherman<br>Dr. Becca Webster</div>
+        </div>
+        <div class="aside-card">
+          <div class="aside-card-label">Funder &amp; partner</div>
+          <div class="aside-card-value">University of Sheffield<br>Oracle Cancer Trust</div>
+        </div>
+        <div class="aside-card">
+          <div class="aside-card-label">Research interests</div>
+          <div class="aside-card-value">Health communication · HPV · Stigma · Cancer terminology · Patient experience · Social media discourse</div>
+        </div>
+        <div class="aside-card">
+          <div class="aside-card-label">Email</div>
+          <div class="aside-card-value">rkiley1@sheffield.ac.uk</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <p class="section-eyebrow">Research</p>
+    <h2 class="section-title">Five studies across<br>two work packages</h2>
+    <p class="section-lead">A mixed-methods programme examining how language shapes HNC communication across public, patient, and professional contexts.</p>
+    <div class="wp-grid">
+      <div class="wp-block">
+        <div class="wp-label">
+          <span class="wp-tag wp-tag-1">Work Package 1</span>
+          <span class="wp-name">Public Awareness &amp; Understanding</span>
+        </div>
+        <div class="studies-grid studies-grid-2">
+          <div class="study-card">
+            <div class="study-num study-num-1">01</div>
+            <div class="study-title">Social Media Discourse Around Celebrity HNC Cases</div>
+            <div class="study-desc">Reflexive thematic analysis of 1,797 Reddit items across five celebrity cases — examining how HPV disclosure type shapes public discourse, terminology use, and stigma.</div>
+            <span class="study-tag tag-analysis">Analysis underway</span>
+          </div>
+          <div class="study-card">
+            <div class="study-num study-num-1">03</div>
+            <div class="study-title">UK Public Knowledge Survey</div>
+            <div class="study-desc">A representative survey of ~1,500 UK adults via Prolific, exploring understanding of HNC terminology, risk factors, and HPV awareness using validated scales.</div>
+            <span class="study-tag tag-planned">Planned</span>
+          </div>
+        </div>
+      </div>
+      <div class="wp-block">
+        <div class="wp-label">
+          <span class="wp-tag wp-tag-2">Work Package 2</span>
+          <span class="wp-name">Patient Experience</span>
+        </div>
+        <div class="studies-grid">
+          <div class="study-card">
+            <div class="study-num study-num-2">02</div>
+            <div class="study-title">Healthcare Professional Communication Survey</div>
+            <div class="study-desc">Cross-sectional survey of ~220 UK ENTs, GPs, dentists, and primary care nurses — exploring knowledge gaps and HPV communication challenges in practice.</div>
+            <span class="study-tag tag-active">Data collection live</span>
+          </div>
+          <div class="study-card">
+            <div class="study-num study-num-2">04</div>
+            <div class="study-title">Patient Experience Interviews</div>
+            <div class="study-desc">In-depth qualitative interviews with ~15 HNC patients, exploring how diagnosis terminology affects their cancer journey, help-seeking, and access to support.</div>
+            <span class="study-tag tag-planned">Planned</span>
+          </div>
+          <div class="study-card">
+            <div class="study-num study-num-2">05</div>
+            <div class="study-title">Family Member Experience Interviews</div>
+            <div class="study-desc">Parallel qualitative interviews with ~15 family members — investigating experiences navigating HNC terminology and supporting loved ones through HPV-related stigma.</div>
+            <span class="study-tag tag-planned">Planned</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <p class="section-eyebrow">Outputs</p>
+    <h2 class="section-title">Dissemination &amp;<br>publications</h2>
+    <p class="section-lead">Sharing findings across academic, clinical, and public audiences throughout the programme.</p>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">Social media responses to celebrity HNC disclosures: a reflexive thematic analysis of Reddit discourse</div>
+          <div class="pub-venue">Journal submission planned — Summer 2026</div>
+        </div>
+        <span class="pub-badge badge-inprogress">In preparation</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">PGR Poster Presentation — Study 1 findings</div>
+          <div class="pub-venue">University of Sheffield PGR Conference · July 2026</div>
+        </div>
+        <span class="pub-badge badge-upcoming">Upcoming</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">2026</div>
+        <div class="pub-body">
+          <div class="pub-title">Conference presentation — celebrity health disclosure &amp; HPV-HNC public discourse</div>
+          <div class="pub-venue">European Health Psychology Society (EHPS) · September 2026</div>
+        </div>
+        <span class="pub-badge badge-upcoming">Upcoming</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">TBC</div>
+        <div class="pub-body">
+          <div class="pub-title">Healthcare professional communication about HPV-related head and neck cancers: a UK survey</div>
+          <div class="pub-venue">Planned following Study 2 completion</div>
+        </div>
+        <span class="pub-badge badge-planned">Planned</span>
+      </div>
+      <div class="pub-item">
+        <div class="pub-year">TBC</div>
+        <div class="pub-body">
+          <div class="pub-title">Evidence-based communication aid tool for head and neck cancer</div>
+          <div class="pub-venue">Co-created with PPI group, University of Sheffield &amp; Oracle Cancer Trust</div>
+        </div>
+        <span class="pub-badge badge-planned">Planned</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-eyebrow">Contact</p>
+    <h2 class="section-title">Get in touch</h2>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <p>I'm happy to hear from researchers, clinicians, journalists, or anyone with an interest in head and neck cancer communication, HPV, or health psychology.</p>
+        <p>If you're a patient or family member who'd like to know more about the research or the PPI group, please don't hesitate to reach out.</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:rkiley1@sheffield.ac.uk">
+          <div>
+            <div class="contact-link-label">Email</div>
+            <div class="contact-link-value">rkiley1@sheffield.ac.uk</div>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+        <a class="contact-link" href="https://www.sheffield.ac.uk" target="_blank">
+          <div>
+            <div class="contact-link-label">Institution</div>
+            <div class="contact-link-value">University of Sheffield · Psychology</div>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+        <a class="contact-link" href="https://oraclecancertrust.org" target="_blank">
+          <div>
+            <div class="contact-link-label">Funder &amp; partner</div>
+            <div class="contact-link-value">Oracle Cancer Trust</div>
+          </div>
+          <span class="contact-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bar"></div>
+  <div class="footer-inner">
+    <div class="footer-logo">Rhianne Kiley</div>
+    <div class="footer-right">PhD Researcher · University of Sheffield<br>Funded by Oracle Cancer Trust · 2025–2028</div>
+  </div>
+</footer>
+
+</body>
+</html>
