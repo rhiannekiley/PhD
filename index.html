@@ -136,6 +136,29 @@ footer{background:var(--hero);padding:0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero-left>*{animation:fadeUp 0.6s ease both}
 .hero-tag{animation-delay:0.1s}.hero-name{animation-delay:0.2s}.hero-desc{animation-delay:0.3s}.hero-cta{animation-delay:0.4s}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr}
+  .hero-left{padding:5rem 1.5rem 3rem;min-height:auto}
+  .hero-right{padding:2.5rem 1.5rem;border-left:none;border-top:1px solid var(--border)}
+  .about-grid{grid-template-columns:1fr;gap:2rem;margin-top:2rem}
+  .studies-intro{grid-template-columns:1fr;gap:1.5rem;margin-bottom:2rem}
+  .studies-cards{grid-template-columns:1fr 1fr;gap:10px}
+  .band-grid{grid-template-columns:1fr 1fr}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .pub-item{grid-template-columns:3rem 1fr;gap:0 1rem}
+  .pb{display:none}
+  .tl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .tl-wrap svg{min-width:680px}
+  .f-inner{flex-direction:column;gap:0.75rem;text-align:center;padding:1.5rem}
+  .f-right{text-align:center}
+  .container{padding:0 1.25rem}
+  section{padding:3.5rem 0}
+  nav{padding:0.9rem 1.5rem}
+}
+@media(max-width:480px){
+  .studies-cards{grid-template-columns:1fr}
+  .hero-name{font-size:clamp(2rem,10vw,2.8rem)}
+}
 </style>
 </head>
 <body>
@@ -193,7 +216,7 @@ footer{background:var(--hero);padding:0}
         <div class="aside-item"><div class="aside-label">Supervisors</div><div class="aside-value">Prof. Sue Sherman<br>Dr. Rebecca Webster</div></div>
         <div class="aside-item"><div class="aside-label">Funder &amp; partner</div><div class="aside-value">University of Sheffield<br>Oracle Cancer Trust</div></div>
         <div class="aside-item"><div class="aside-label">Research interests</div><div class="aside-value">Health communication · HPV · Stigma · Cancer terminology · Patient experience · Social media discourse</div></div>
-        <div class="aside-item"><div class="aside-label">Email</div><div class="aside-value">rkiley1@sheffield.ac.uk</div></div>
+        <div class="aside-item"><div class="aside-label">Email</div><div class="aside-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="fd8f9694919884ccbd8e95989b9b94989199d39c9ed38896">[email&#160;protected]</a></div></div>
       </div>
     </div>
   </div>
@@ -436,7 +459,7 @@ footer{background:var(--hero);padding:0}
         <p>If you're a patient or family member who'd like to know more about the research or the PPI group, please don't hesitate to reach out.</p>
       </div>
       <div class="clinks fade-in">
-        <a class="clink" href="mailto:rkiley1@sheffield.ac.uk"><div><div class="cl-label">Email</div><div class="cl-val">rkiley1@sheffield.ac.uk</div></div><span class="cl-arr">&#8594;</span></a>
+        <a class="clink" href="/cdn-cgi/l/email-protection#6e1c0507020b175f2e1d060b0808070b020a400f0d401b05"><div><div class="cl-label">Email</div><div class="cl-val"><span class="__cf_email__" data-cfemail="10627b797c75692150637875767679757c743e71733e657b">[email&#160;protected]</span></div></div><span class="cl-arr">&#8594;</span></a>
         <a class="clink" href="https://www.sheffield.ac.uk" target="_blank"><div><div class="cl-label">Institution</div><div class="cl-val">University of Sheffield · Psychology</div></div><span class="cl-arr">&#8594;</span></a>
         <a class="clink" href="https://oraclehnc.org.uk/" target="_blank"><div><div class="cl-label">Funder &amp; partner</div><div class="cl-val">Oracle Cancer Trust</div></div><span class="cl-arr">&#8594;</span></a>
       </div>
@@ -452,7 +475,7 @@ footer{background:var(--hero);padding:0}
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 window.addEventListener('scroll',function(){
   var p=document.getElementById('scroll-progress');
   var pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
@@ -488,18 +511,4 @@ bars.forEach(function(b){
     ttbg.setAttribute('x',tx);
     ttbg.setAttribute('y',sp.y-36);
     tttx.setAttribute('x',tx+8);
-    tttx.setAttribute('y',sp.y-36+17);
-    tttx.textContent=label;
-    tt.style.display='block';
-    this.style.opacity='0.75';
-  });
-  b.addEventListener('mouseleave',function(){
-    tt.style.display='none';
-    hint.textContent='Hover over any bar or milestone to see details';
-    this.style.opacity='1';
-  });
-});
-hint.textContent='Hover over any bar or milestone to see details';
-</script>
-</body>
-</html>
+    tttx.setAttribute('y',sp.y-36+
