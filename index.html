@@ -105,7 +105,7 @@ section{padding:6rem 0}
 .tl-wrap{margin-top:2rem;overflow-x:auto}
 #publications{background:var(--rose-pale)}
 .pub-list{margin-top:2.5rem}
-.pub-item{display:grid;grid-template-columns:3.5rem 1fr auto;gap:0 1.5rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border);transition:background 0.2s}
+.pub-item{display:grid;grid-template-columns:3.5rem 1fr auto;gap:0 1.5rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border)}
 .pub-item:first-child{border-top:1px solid var(--border)}
 .pub-year{font-family:var(--serif);font-size:0.82rem;color:var(--ink-muted);padding-top:0.1rem;font-style:italic}
 .pub-title{font-size:0.9rem;color:var(--ink);font-weight:500;margin-bottom:0.25rem;line-height:1.45}
@@ -136,56 +136,6 @@ footer{background:var(--hero);padding:0}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .hero-left>*{animation:fadeUp 0.6s ease both}
 .hero-tag{animation-delay:0.1s}.hero-name{animation-delay:0.2s}.hero-desc{animation-delay:0.3s}.hero-cta{animation-delay:0.4s}
-.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
-.ham span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:all 0.3s}
-.ham.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.ham.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.mob-menu{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(254,252,249,0.98);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);z-index:99;flex-direction:column}
-.mob-menu.open{display:flex}
-.mob-menu a{padding:1rem 1.5rem;font-size:0.85rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;border-bottom:1px solid var(--border);transition:color 0.2s,background 0.2s}
-.mob-menu a:last-child{border-bottom:none}
-.mob-menu a:active{color:var(--rose);background:var(--rose-pale)}
-@media(max-width:1024px){
-  .studies-cards{grid-template-columns:repeat(3,1fr)}
-  .hero-left{padding:5rem 3rem 3rem 3.5rem}
-}
-@media(max-width:800px){
-  nav{padding:0.9rem 1.25rem}
-  .nav-links{display:none}
-  .ham{display:flex}
-  .hero{grid-template-columns:1fr;min-height:auto}
-  .hero-left{padding:5rem 1.5rem 3rem;min-height:auto}
-  .hero-name{font-size:clamp(2.2rem,9vw,3rem)}
-  .hero-desc{max-width:100%}
-  .hero-right{padding:2.5rem 1.5rem;border-left:none;border-top:1px solid var(--border)}
-  .stats-grid{grid-template-columns:1fr 1fr}
-  .stat-num{font-size:2.2rem}
-  .about-grid{grid-template-columns:1fr;gap:2rem;margin-top:2rem}
-  .band-grid{grid-template-columns:1fr 1fr}
-  .band-cell{padding:1.75rem 1rem}
-  .band-num{font-size:2.2rem}
-  .studies-intro{grid-template-columns:1fr;gap:1.5rem;margin-bottom:2rem}
-  .studies-cards{grid-template-columns:1fr 1fr;gap:10px}
-  .scard{padding:1.25rem 1rem}
-  .snum{font-size:1.5rem}
-  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
-  .pub-item{grid-template-columns:3rem 1fr;gap:0 1rem}
-  .pb{display:none}
-  .f-inner{flex-direction:column;gap:0.75rem;text-align:center;padding:1.5rem}
-  .f-right{text-align:center}
-  .container{padding:0 1.25rem}
-  section{padding:3.5rem 0}
-  #stats-band{padding:2.5rem 0}
-  .tl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .tl-wrap svg{min-width:680px}
-}
-@media(max-width:480px){
-  .studies-cards{grid-template-columns:1fr}
-  .hero-name{font-size:clamp(2rem,10vw,2.6rem)}
-  .stat-num{font-size:2rem}
-  .band-grid{grid-template-columns:1fr 1fr}
-}
 </style>
 </head>
 <body>
@@ -202,18 +152,7 @@ footer{background:var(--hero);padding:0}
     <li><a href="#publications">Outputs</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="ham" id="ham" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
-<div class="mob-menu" id="mob-menu">
-  <a href="#about" onclick="closeMob()">About</a>
-  <a href="#ecosystem" onclick="closeMob()">Research</a>
-  <a href="#studies" onclick="closeMob()">Studies</a>
-  <a href="#timeline" onclick="closeMob()">Timeline</a>
-  <a href="#publications" onclick="closeMob()">Outputs</a>
-  <a href="#contact" onclick="closeMob()">Contact</a>
-</div>
 
 <section class="hero" id="home">
   <div class="hero-left">
@@ -222,7 +161,7 @@ footer{background:var(--hero);padding:0}
     <p class="hero-tag">PhD Researcher · University of Sheffield</p>
     <h1 class="hero-name">Language &amp;<br><em>Cancer</em><br>Communication</h1>
     <p class="hero-desc">Investigating how terminology shapes public understanding and patient experience of head and neck cancers — with a focus on HPV-related disease.</p>
-    <a href="#ecosystem" class="hero-cta">Explore the research &nbsp;→</a>
+    <a href="#ecosystem" class="hero-cta">Explore the research &nbsp;&#8594;</a>
   </div>
   <div class="hero-right">
     <div class="stats-grid">
@@ -254,7 +193,7 @@ footer{background:var(--hero);padding:0}
         <div class="aside-item"><div class="aside-label">Supervisors</div><div class="aside-value">Prof. Sue Sherman<br>Dr. Becca Webster</div></div>
         <div class="aside-item"><div class="aside-label">Funder &amp; partner</div><div class="aside-value">University of Sheffield<br>Oracle Cancer Trust</div></div>
         <div class="aside-item"><div class="aside-label">Research interests</div><div class="aside-value">Health communication · HPV · Stigma · Cancer terminology · Patient experience · Social media discourse</div></div>
-        <div class="aside-item"><div class="aside-label">Email</div><div class="aside-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d8aab3b1b4bda1e998abb0bdbebeb1bdb4bcf6b9bbf6adb3">[email&#160;protected]</a></div></div>
+        <div class="aside-item"><div class="aside-label">Email</div><div class="aside-value">rkiley1@sheffield.ac.uk</div></div>
       </div>
     </div>
   </div>
@@ -497,7 +436,7 @@ footer{background:var(--hero);padding:0}
         <p>If you're a patient or family member who'd like to know more about the research or the PPI group, please don't hesitate to reach out.</p>
       </div>
       <div class="clinks fade-in">
-        <a class="clink" href="/cdn-cgi/l/email-protection#1c6e77757079652d5c6f74797a7a75797078327d7f326977"><div><div class="cl-label">Email</div><div class="cl-val"><span class="__cf_email__" data-cfemail="ef9d8486838a96deaf9c878a8989868a838bc18e8cc19a84">[email&#160;protected]</span></div></div><span class="cl-arr">&#8594;</span></a>
+        <a class="clink" href="mailto:rkiley1@sheffield.ac.uk"><div><div class="cl-label">Email</div><div class="cl-val">rkiley1@sheffield.ac.uk</div></div><span class="cl-arr">&#8594;</span></a>
         <a class="clink" href="https://www.sheffield.ac.uk" target="_blank"><div><div class="cl-label">Institution</div><div class="cl-val">University of Sheffield · Psychology</div></div><span class="cl-arr">&#8594;</span></a>
         <a class="clink" href="https://oraclecancertrust.org" target="_blank"><div><div class="cl-label">Funder &amp; partner</div><div class="cl-val">Oracle Cancer Trust</div></div><span class="cl-arr">&#8594;</span></a>
       </div>
@@ -513,48 +452,27 @@ footer{background:var(--hero);padding:0}
   </div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-var ham=document.getElementById('ham');
-var mob=document.getElementById('mob-menu');
-ham.addEventListener('click',function(){
-  ham.classList.toggle('open');
-  mob.classList.toggle('open');
-});
-function closeMob(){
-  ham.classList.remove('open');
-  mob.classList.remove('open');
-}
-
+<script>
 window.addEventListener('scroll',function(){
   var p=document.getElementById('scroll-progress');
   var pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
   p.style.width=Math.min(pct,100)+'%';
 });
-
 var obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
-},{threshold:0.05,rootMargin:'0px 0px 0px 0px'});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el);});
-setTimeout(function(){
-  document.querySelectorAll('.fade-in').forEach(function(el){
-    var r=el.getBoundingClientRect();
-    if(r.top<window.innerHeight)el.classList.add('visible');
-  });
-},100);
-
 function toggleCard(card){
   var was=card.classList.contains('expanded');
   document.querySelectorAll('.scard').forEach(function(c){c.classList.remove('expanded');});
   if(!was)card.classList.add('expanded');
 }
-
 var bars=document.querySelectorAll('.tlb');
 var tt=document.getElementById('tltt');
 var ttbg=document.getElementById('ttbg');
 var tttx=document.getElementById('tttx');
 var hint=document.getElementById('tlhint');
 var svg=document.getElementById('tl-svg');
-
 bars.forEach(function(b){
   b.style.cursor='pointer';
   b.addEventListener('mouseenter',function(e){
@@ -569,3 +487,19 @@ bars.forEach(function(b){
     ttbg.setAttribute('width',w);
     ttbg.setAttribute('x',tx);
     ttbg.setAttribute('y',sp.y-36);
+    tttx.setAttribute('x',tx+8);
+    tttx.setAttribute('y',sp.y-36+17);
+    tttx.textContent=label;
+    tt.style.display='block';
+    this.style.opacity='0.75';
+  });
+  b.addEventListener('mouseleave',function(){
+    tt.style.display='none';
+    hint.textContent='Hover over any bar or milestone to see details';
+    this.style.opacity='1';
+  });
+});
+hint.textContent='Hover over any bar or milestone to see details';
+</script>
+</body>
+</html>
