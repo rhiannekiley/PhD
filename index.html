@@ -80,12 +80,14 @@ section{padding:6rem 0}
 #studies{background:var(--cream)}
 .studies-intro{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:3rem}
 .studies-cards{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.scard-toggle{display:none}
+.scard-wrap{display:contents}
 .scard{background:var(--warm-white);border:1px solid var(--border);border-radius:8px;padding:1.5rem 1.25rem;display:flex;flex-direction:column;gap:0.65rem;cursor:pointer;transition:all 0.3s;position:relative;overflow:hidden}
 .scard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:8px 8px 0 0}
 .sc-r::before{background:linear-gradient(90deg,var(--rose),var(--rose-mid))}
 .sc-s::before{background:linear-gradient(90deg,var(--sage),var(--sage-mid))}
 .scard:hover{border-color:var(--border-dk);transform:translateY(-3px);box-shadow:0 8px 24px rgba(42,32,53,0.08)}
-.scard.expanded{border-color:var(--border-dk);box-shadow:0 8px 32px rgba(42,32,53,0.1);transform:translateY(-2px)}
+.scard-toggle:checked+.scard{border-color:var(--border-dk);box-shadow:0 8px 32px rgba(42,32,53,0.1);transform:translateY(-2px)}
 .snum{font-family:var(--serif);font-size:1.8rem;line-height:1;font-style:italic}
 .sn-r{color:var(--rose)}.sn-s{color:var(--sage)}
 .swp{font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:500}
@@ -93,10 +95,10 @@ section{padding:6rem 0}
 .stitle{font-size:0.82rem;color:var(--ink);font-weight:500;line-height:1.4}
 .sdesc{font-size:0.75rem;color:var(--ink-muted);line-height:1.65;font-weight:300}
 .sdetail{font-size:0.75rem;color:var(--ink-mid);line-height:1.65;font-weight:300;max-height:0;overflow:hidden;transition:max-height 0.4s ease,opacity 0.3s ease,padding 0.3s ease;opacity:0;border-top:0 solid var(--border)}
-.scard.expanded .sdetail{max-height:400px;opacity:1;padding-top:0.75rem;border-top-width:1px;margin-top:0.25rem}
+.scard-toggle:checked+.scard .sdetail{max-height:400px;opacity:1;padding-top:0.75rem;border-top-width:1px;margin-top:0.25rem}
 .sexpand{font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;color:var(--ink-muted);display:flex;align-items:center;gap:0.4rem;margin-top:auto;padding-top:0.5rem}
 .sexpand-icon{display:inline-block;transition:transform 0.3s}
-.scard.expanded .sexpand-icon{transform:rotate(180deg)}
+.scard-toggle:checked+.scard .sexpand-icon{transform:rotate(180deg)}
 .sbadge{font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;font-weight:500;padding:0.18rem 0.5rem;width:fit-content;border:1px solid;border-radius:2px}
 .b-live{color:var(--sage);border-color:var(--sage);background:var(--sage-light)}
 .b-analysis{color:var(--rose);border-color:var(--rose);background:var(--rose-light)}
@@ -307,46 +309,51 @@ footer{background:var(--hero);padding:0}
       <p class="section-lead fade-in">Click any study card to expand it and read more detail. A mixed-methods programme combining social media analysis, surveys, and qualitative interviews.</p>
     </div>
     <div class="studies-cards">
-      <div class="scard sc-r fade-in" onclick="toggleCard(this)">
+      <div class="scard-wrap"><input type="checkbox" class="scard-toggle" id="sc1">
+      <label class="scard sc-r fade-in" for="sc1">
         <div class="snum sn-r">01</div><div class="swp sw-r">WP1 · Public</div>
         <div class="stitle">Social Media Discourse</div>
         <div class="sdesc">Reflexive thematic analysis of Reddit responses to 5 celebrity HNC cases.</div>
         <div class="sdetail">Data collected December 2025. Final dataset of 1,797 items across five celebrity cases: Michael Douglas, Bruce Dickinson, Rhod Gilbert, Martina Navratilova, and Mark Steel. Analysis examines how HPV disclosure type shapes public discourse, terminology use, and stigma. Inductive approach following Braun &amp; Clarke (2006, 2022).</div>
         <span class="sbadge b-analysis">Analysis underway</span>
         <div class="sexpand">More <span class="sexpand-icon">&#8595;</span></div>
-      </div>
-      <div class="scard sc-s fade-in" onclick="toggleCard(this)">
+      </label></div>
+      <div class="scard-wrap"><input type="checkbox" class="scard-toggle" id="sc2">
+      <label class="scard sc-s fade-in" for="sc2">
         <div class="snum sn-s">02</div><div class="swp sw-s">WP2 · Clinicians</div>
         <div class="stitle">HCP Communication Survey</div>
         <div class="sdesc">Cross-sectional survey of 220+ UK secondary care clinicians across 14 role types.</div>
         <div class="sdetail">Examines HPV communication knowledge, confidence, and barriers using a TDF-informed framework. Builds on Dodd et al. (2017) with extended interprofessional comparisons. Includes ENTs, oral &amp; maxillofacial surgeons, oncologists, clinical nurse specialists, SLTs, dietitians, and more. Implemented via Qualtrics with conditional survey logic.</div>
         <span class="sbadge b-live">Data collection live</span>
         <div class="sexpand">More <span class="sexpand-icon">&#8595;</span></div>
-      </div>
-      <div class="scard sc-r fade-in" onclick="toggleCard(this)">
+      </label></div>
+      <div class="scard-wrap"><input type="checkbox" class="scard-toggle" id="sc3">
+      <label class="scard sc-r fade-in" for="sc3">
         <div class="snum sn-r">03</div><div class="swp sw-r">WP1 · Public</div>
         <div class="stitle">UK Public Knowledge Survey</div>
         <div class="sdesc">Representative survey of ~1,500 UK adults via Prolific.</div>
         <div class="sdetail">Uses validated HPV knowledge scales grounded in the Health Belief Model to assess public understanding of HNC terminology, risk factors, and HPV awareness. Includes demographic and socioeconomic variables. Informed by findings from Study 1. Cross-sectional design via Qualtrics.</div>
         <span class="sbadge b-planned">Planned</span>
         <div class="sexpand">More <span class="sexpand-icon">&#8595;</span></div>
-      </div>
-      <div class="scard sc-s fade-in" onclick="toggleCard(this)">
+      </label></div>
+      <div class="scard-wrap"><input type="checkbox" class="scard-toggle" id="sc4">
+      <label class="scard sc-s fade-in" for="sc4">
         <div class="snum sn-s">04</div><div class="swp sw-s">WP2 · Patients</div>
         <div class="stitle">Patient Experience Interviews</div>
         <div class="sdesc">Qualitative interviews with ~15 HNC patients.</div>
         <div class="sdetail">Explores how diagnosis terminology affects patients' cancer journey, help-seeking behaviour, and access to support. Sampling across cancer types and sociodemographic variables. Reflexive thematic analysis approach. Patient stakeholders involved from the outset in designing interview questions. Recruitment supported by Oracle Cancer Trust.</div>
         <span class="sbadge b-planned">Planned</span>
         <div class="sexpand">More <span class="sexpand-icon">&#8595;</span></div>
-      </div>
-      <div class="scard sc-s fade-in" onclick="toggleCard(this)">
+      </label></div>
+      <div class="scard-wrap"><input type="checkbox" class="scard-toggle" id="sc5">
+      <label class="scard sc-s fade-in" for="sc5">
         <div class="snum sn-s">05</div><div class="swp sw-s">WP2 · Families</div>
         <div class="stitle">Family Member Interviews</div>
         <div class="sdesc">Parallel interviews with ~15 family members of HNC patients.</div>
         <div class="sdetail">Investigates experiences navigating HNC terminology and supporting loved ones, including challenges related to HPV-related stigma. Options for 1-1, dyad, or focus group formats. Parallel data collection and analysis alongside Study 4 to allow topic guide modification. PPI involvement in question design.</div>
         <span class="sbadge b-planned">Planned</span>
         <div class="sexpand">More <span class="sexpand-icon">&#8595;</span></div>
-      </div>
+      </label></div>
     </div>
     <p style="font-size:0.75rem;color:var(--ink-muted);font-style:italic;margin-top:1rem;text-align:center;opacity:0.7" class="fade-in">Click any card to read more</p>
   </div>
@@ -484,11 +491,13 @@ var obs=new IntersectionObserver(function(entries){
   entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});
 },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.fade-in').forEach(function(el){obs.observe(el);});
-function toggleCard(card){
-  var was=card.classList.contains('expanded');
-  document.querySelectorAll('.scard').forEach(function(c){c.classList.remove('expanded');});
-  if(!was)card.classList.add('expanded');
-}
+document.querySelectorAll('.scard').forEach(function(card){
+  card.addEventListener('click',function(){
+    var was=this.classList.contains('expanded');
+    document.querySelectorAll('.scard').forEach(function(c){c.classList.remove('expanded');});
+    if(!was)this.classList.add('expanded');
+  });
+});
 var bars=document.querySelectorAll('.tlb');
 var tt=document.getElementById('tltt');
 var ttbg=document.getElementById('ttbg');
